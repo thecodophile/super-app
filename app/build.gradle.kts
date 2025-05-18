@@ -79,4 +79,8 @@ dependencies {
 
     // Splash Screen
     implementation(libs.splash.screen)
+
+    // Coil
+    implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
 }
