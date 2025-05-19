@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.somnathdey.superapp.R
 import com.somnathdey.superapp.presentation.components.AppToolbar
 import com.somnathdey.superapp.presentation.components.BannerComponent
 import com.somnathdey.superapp.presentation.ui.theme.whiteColor
@@ -20,14 +21,15 @@ fun HomeScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .wrapContentSize(Alignment.Center)
+                .wrapContentSize(Alignment.TopCenter)
                 .background(whiteColor)
                 .padding(innerPadding)
         ) {
             BannerComponent(
-                title = "Hello world!",
-                description = "Native android developer",
-                imageUrl = "https://cdn.pixabay.com/photo/2025/05/07/19/13/soap-bubbles-9585871_1280.jpg"
+                title = "Wealth",
+                description = "Investment ideas for you",
+                imageUrl = null,
+                resourceValue = R.drawable.ic_wealth
             )
         }
     }

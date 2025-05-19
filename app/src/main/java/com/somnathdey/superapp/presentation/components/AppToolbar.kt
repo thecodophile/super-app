@@ -46,8 +46,9 @@ fun AppToolbar() {
         TextComponent(
             modifier = Modifier.wrapContentSize(),
             textValue = stringResource(R.string.add_address),
+            textColorValue = whiteColor,
             fontSizeValue = 20.sp,
-            textColorValue = whiteColor
+            paddingValue = 8.dp
         )
 
         Spacer(modifier = Modifier.weight(1f))
