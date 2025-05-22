@@ -1,11 +1,10 @@
-package com.somnathdey.superapp.presentation.components
+package com.somnathdey.design.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -21,23 +20,27 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.somnathdey.superapp.R
-import com.somnathdey.superapp.presentation.ui.theme.blackColor
-import com.somnathdey.superapp.presentation.ui.theme.primaryColor
-import com.somnathdey.superapp.presentation.ui.theme.whiteColor
+import com.somnathdey.design.R
+import com.somnathdey.design.ui.theme.blackColor
+import com.somnathdey.design.ui.theme.primaryColor
+import com.somnathdey.design.ui.theme.whiteColor
 
 @Composable
 fun BannerComponent(
     title: String? = null,
     description: String? = null,
     imageUrl: String? = null,
-    resourceValue: Int? = null
+    resourceValue: Int? = null,
+    onClickBanner: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(12.dp)
+            .clickable {
+                onClickBanner()
+            }
             .clip(
                 shape = RoundedCornerShape(12.dp)
             )
@@ -103,7 +106,7 @@ fun BannerComponentPreviewFirstType() {
         title = "This is title",
         description = "This is long description",
         imageUrl = null,
-        resourceValue = R.drawable.ic_wealth
+        //resourceValue = R.drawable.ic_wealth
     )
 }
 

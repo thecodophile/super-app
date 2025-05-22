@@ -1,4 +1,4 @@
-package com.somnathdey.superapp.presentation.components
+package com.somnathdey.design.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -11,24 +11,26 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.somnathdey.superapp.presentation.ui.theme.blackColor
+import com.somnathdey.design.ui.theme.blackColor
 
 @Composable
 fun TextComponent(
     modifier: Modifier,
-    textValue: String,
+    textValue: String? = null,
     textColorValue: Color = blackColor,
     fontSizeValue: TextUnit = 16.sp,
     paddingValue: Dp = 0.dp
 ) {
-    Text(
-        modifier = modifier
-            .padding(all = paddingValue),
-        text = textValue,
-        style = TextStyle(
-            color = textColorValue,
-            fontSize = fontSizeValue
-        ),
-        textAlign = TextAlign.Center
-    )
+    textValue?.let {
+        Text(
+            modifier = modifier
+                .padding(all = paddingValue),
+            text = it,
+            style = TextStyle(
+                color = textColorValue,
+                fontSize = fontSizeValue
+            ),
+            textAlign = TextAlign.Center
+        )
+    }
 }

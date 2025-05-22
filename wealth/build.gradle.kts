@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
@@ -7,17 +7,14 @@ plugins {
 }
 
 android {
-    namespace = "com.somnathdey.superapp"
+    namespace = "com.somnathdey.wealth"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.somnathdey.superapp"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -28,6 +25,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+
         debug {
             isMinifyEnabled = false
             proguardFiles(
@@ -51,9 +49,7 @@ android {
 
 dependencies {
 
-    implementation(project(":utilities"))
     implementation(project(":design"))
-    implementation(project(":wealth"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -78,13 +74,6 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
-
-    // Splash Screen
-    implementation(libs.splash.screen)
-
-    // Coil
-    implementation(libs.coil)
-    implementation(libs.coil.network.okhttp)
 
     // Lottie
     implementation(libs.lottie)

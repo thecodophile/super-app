@@ -1,4 +1,4 @@
-package com.somnathdey.superapp.presentation.components
+package com.somnathdey.design.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable

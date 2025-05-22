@@ -1,4 +1,4 @@
-package com.somnathdey.superapp.presentation.ui.theme
+package com.somnathdey.design.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

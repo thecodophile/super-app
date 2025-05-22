@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.somnathdey.superapp.presentation.screens.home.HomeScreen
+import com.somnathdey.wealth.presentation.screens.WealthHomeScreen
 
 @Composable
 fun AppNavGraph() {
@@ -17,7 +18,22 @@ fun AppNavGraph() {
     Surface(modifier = Modifier.fillMaxSize()) {
         NavHost(navController, startDestination = Screen.HomeScreen.route) {
             composable(route = Screen.HomeScreen.route) {
-                HomeScreen()
+                HomeScreen(
+                    onClickPrimaryButton = {
+
+                    },
+                    onClickWealthBanner = {
+                        navController.navigate(Screen.WealthHomeScreen.route)
+                    }
+                )
+            }
+
+            composable(route = Screen.WealthHomeScreen.route) {
+                WealthHomeScreen(
+                    onClickPrimaryButton = {
+                        navController.popBackStack()
+                    }
+                )
             }
         }
     }

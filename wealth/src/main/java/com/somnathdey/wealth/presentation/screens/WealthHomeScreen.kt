@@ -1,4 +1,4 @@
-package com.somnathdey.superapp.presentation.screens.home
+package com.somnathdey.wealth.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -11,47 +11,37 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.somnathdey.superapp.R
 import com.somnathdey.design.components.AppToolbar
-import com.somnathdey.design.components.BannerComponent
 import com.somnathdey.design.ui.theme.whiteColor
+import com.somnathdey.wealth.R
 
 @Composable
-fun HomeScreen(
-    onClickPrimaryButton: () -> Unit = {},
-    onClickWealthBanner: () -> Unit = {},
+fun WealthHomeScreen(
+    onClickPrimaryButton: () -> Unit = {}
 ) {
     Scaffold(topBar = {
         AppToolbar(
-            title = stringResource(R.string.add_address),
-            isNotificationVisible = true,
+            title = stringResource(R.string.wealth),
+            isBackButtonVisible = true,
             onClickPrimaryButton = {
-
+                onClickPrimaryButton()
             }
         )
     }) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .wrapContentSize(Alignment.TopCenter)
+                .wrapContentSize(Alignment.TopStart)
                 .background(whiteColor)
                 .padding(innerPadding)
         ) {
-            BannerComponent(
-                title = "Wealth",
-                description = "Investment ideas for you",
-                imageUrl = null,
-                resourceValue = R.drawable.ic_wealth,
-                onClickBanner = {
-                    onClickWealthBanner()
-                }
-            )
+
         }
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
-    HomeScreen()
+fun WealthHomeScreenPreview() {
+    WealthHomeScreen()
 }
