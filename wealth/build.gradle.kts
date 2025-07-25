@@ -50,6 +50,7 @@ android {
 dependencies {
 
     implementation(project(":design"))
+    implementation(project(":utilities"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -77,4 +78,10 @@ dependencies {
 
     // Lottie
     implementation(libs.lottie)
+
+    // Networking
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.logging.interceptor)
 }
