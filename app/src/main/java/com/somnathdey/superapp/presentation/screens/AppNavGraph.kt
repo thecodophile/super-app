@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.somnathdey.superapp.presentation.screens.home.HomeScreen
-import com.somnathdey.wealth.presentation.screens.WealthHomeScreen
+import com.somnathdey.wealth.presentation.screens.wealthHome.WealthHomeScreen
 
 @Composable
 fun AppNavGraph() {

@@ -30,7 +30,7 @@ fun TextComponent(
                 color = textColorValue,
                 fontSize = fontSizeValue
             ),
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Start
         )
     }
 }
