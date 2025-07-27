@@ -88,4 +88,7 @@ dependencies {
 
     // Lottie
     implementation(libs.lottie)
+
+    // Navigation
+    implementation(libs.navigation.compose)
 }
