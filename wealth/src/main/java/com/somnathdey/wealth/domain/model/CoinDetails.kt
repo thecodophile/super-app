@@ -14,4 +14,5 @@ data class CoinDetails(
     val tags: List<Tag>,
     val team: List<Team>,
     val links: Links,
+    val logo: String,
 )

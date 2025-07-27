@@ -2,6 +2,7 @@ package com.somnathdey.wealth.presentation.screens.wealthHome.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
@@ -24,11 +25,17 @@ import com.somnathdey.design.ui.theme.whiteColor
 import com.somnathdey.wealth.domain.model.Coin
 
 @Composable
-fun CoinListItem(coin: Coin) {
+fun CoinListItem(
+    coin: Coin,
+    coinItemClicked: (String) -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(106.dp)
+            .clickable {
+                coinItemClicked(coin.id)
+            }
             .padding(top = 18.dp, start = 18.dp, end = 18.dp)
             .border(1.dp, primaryColor, RoundedCornerShape(10.dp))
     ) {

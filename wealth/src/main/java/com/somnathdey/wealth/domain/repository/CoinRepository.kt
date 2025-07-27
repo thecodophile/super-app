@@ -9,5 +9,5 @@ interface CoinRepository {
 
     suspend fun getCoins(): Flow<Resource<List<Coin>>>
 
-    suspend fun getCoinDetails(): Flow<Resource<CoinDetails>>
+    suspend fun getCoinDetails(coinId: String): Flow<Resource<CoinDetails>>
 }

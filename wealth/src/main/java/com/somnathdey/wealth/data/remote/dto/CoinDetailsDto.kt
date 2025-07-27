@@ -58,6 +58,7 @@ fun CoinDetailsDto.toCoinDetails(): CoinDetails {
         isActive = isActive,
         tags = tags,
         team = team,
-        links = links
+        links = links,
+        logo = logo
     );
 }

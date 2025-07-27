@@ -3,6 +3,7 @@ package com.somnathdey.wealth.data.repository
 import com.somnathdey.utilities.Resource
 import com.somnathdey.wealth.data.remote.CoinApi
 import com.somnathdey.wealth.data.remote.dto.toCoin
+import com.somnathdey.wealth.data.remote.dto.toCoinDetails
 import com.somnathdey.wealth.domain.model.Coin
 import com.somnathdey.wealth.domain.model.CoinDetails
 import com.somnathdey.wealth.domain.repository.CoinRepository
@@ -35,7 +36,23 @@ class CoinRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getCoinDetails(): Flow<Resource<CoinDetails>> {
-        TODO("Not yet implemented")
+    override suspend fun getCoinDetails(coinId: String): Flow<Resource<CoinDetails>> = flow {
+        try {
+
+            emit(Resource.Loading())
+
+            val coinsDetails = api.getCoinDetails(coinId = coinId)
+
+            emit(Resource.Success(coinsDetails.toCoinDetails()))
+
+        } catch (e: HttpException) {
+
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
+
+        } catch (e: IOException) {
+
+            emit(Resource.Error("Couldn't reach the servers, check your internet connection"))
+
+        }
     }
 }
