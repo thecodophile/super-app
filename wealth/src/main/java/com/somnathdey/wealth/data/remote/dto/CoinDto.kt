@@ -1,7 +1,7 @@
 package com.somnathdey.wealth.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import com.somnathdey.wealth.domain.model.Coin
+import com.somnathdey.datasource.local.entity.Coin
 
 data class CoinDto(
     val id: String,

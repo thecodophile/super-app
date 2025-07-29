@@ -1,6 +1,7 @@
 package com.somnathdey.wealth.presentation.screens.wealthHome
 
-import com.somnathdey.wealth.domain.model.Coin
+import com.somnathdey.datasource.local.entity.Coin
+
 
 data class WealthHomeScreenState(
     val isLoading: Boolean = false,

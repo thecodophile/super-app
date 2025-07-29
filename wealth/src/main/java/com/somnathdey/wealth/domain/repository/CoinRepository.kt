@@ -1,7 +1,7 @@
 package com.somnathdey.wealth.domain.repository
 
+import com.somnathdey.datasource.local.entity.Coin
 import com.somnathdey.utilities.Resource
-import com.somnathdey.wealth.domain.model.Coin
 import com.somnathdey.wealth.domain.model.CoinDetails
 import kotlinx.coroutines.flow.Flow
 

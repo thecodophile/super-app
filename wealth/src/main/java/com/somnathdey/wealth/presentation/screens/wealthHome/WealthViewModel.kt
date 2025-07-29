@@ -40,7 +40,7 @@ class WealthViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-                    _state.value = WealthHomeScreenState(
+                    _state.value =  _state.value.copy(
                         error = result.message
                     )
                 }

@@ -4,7 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -45,15 +47,29 @@ fun WealthHomeScreen(
     }) { innerPadding ->
 
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .wrapContentSize(Alignment.TopStart)
                     .background(whiteColor)
-                    .padding(innerPadding)
             ) {
+
+                if (!state.error.isNullOrEmpty()) {
+                    TextComponent(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                            .padding(20.dp),
+                        textValue = state.error,
+                        textColorValue = Color.Red,
+                        fontSizeValue = 20.sp,
+
+                        )
+                }
 
                 LazyColumn(
                     modifier = Modifier.fillMaxSize()
@@ -68,18 +84,6 @@ fun WealthHomeScreen(
                     }
                 }
 
-            }
-
-            if (!state.error.isNullOrEmpty()) {
-                TextComponent(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(20.dp),
-                    textValue = state.error,
-                    textColorValue = Color.Red,
-                    fontSizeValue = 20.sp,
-
-                    )
             }
 
             if (state.isLoading) {

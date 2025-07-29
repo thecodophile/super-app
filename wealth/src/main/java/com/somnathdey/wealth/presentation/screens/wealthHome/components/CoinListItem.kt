@@ -19,10 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.somnathdey.datasource.local.entity.Coin
 import com.somnathdey.design.components.TextComponent
 import com.somnathdey.design.ui.theme.primaryColor
 import com.somnathdey.design.ui.theme.whiteColor
-import com.somnathdey.wealth.domain.model.Coin
 
 @Composable
 fun CoinListItem(

@@ -1,5 +1,6 @@
 package com.somnathdey.wealth.di
 
+import com.somnathdey.datasource.local.LocalDataSource
 import com.somnathdey.utilities.constants.AppConstants
 import com.somnathdey.wealth.data.remote.CoinApi
 import com.somnathdey.wealth.data.repository.CoinRepositoryImpl
@@ -45,7 +46,7 @@ class WealthModule {
 
     @Provides
     @Singleton
-    fun providesCoinRepository(api: CoinApi): CoinRepository {
-        return CoinRepositoryImpl(api);
+    fun providesCoinRepository(api: CoinApi, localDataSource: LocalDataSource): CoinRepository {
+        return CoinRepositoryImpl(api, localDataSource);
     }
 }

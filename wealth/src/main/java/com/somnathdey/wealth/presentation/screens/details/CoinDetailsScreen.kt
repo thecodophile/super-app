@@ -10,11 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -31,7 +28,6 @@ import com.somnathdey.design.components.TextComponent
 import com.somnathdey.design.ui.theme.whiteColor
 import com.somnathdey.wealth.R
 import com.somnathdey.wealth.domain.model.CoinDetails
-import com.somnathdey.wealth.presentation.screens.wealthHome.components.CoinListItem
 
 @Composable
 fun CoinDetailsScreen(
@@ -56,14 +52,15 @@ fun CoinDetailsScreen(
     }) { innerPadding ->
 
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .wrapContentSize(Alignment.TopStart)
                     .background(whiteColor)
-                    .padding(innerPadding)
             ) {
 
                 state.coinDetails?.also { coinDetails ->
