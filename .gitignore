@@ -142,6 +142,7 @@ proguard/
 *.log
 
 # Android Studio
+**/build/
 /*/build/
 /*/local.properties
 /*/out
@@ -175,6 +176,7 @@ obj/
 /out/
 
 # User-specific configurations
+.idea/
 .idea/caches/
 .idea/libraries/
 .idea/shelf/
@@ -243,3 +245,16 @@ crashlytics-build.properties
 fabric.properties
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Android,AndroidStudio
+
+# Kotlin compiler (e.g., Compose)
+.kotlinc/
+.idea/kotlinc.xml
+
+
+# Lint
+lint/reports/
+lint-baseline.xml
+
+# Firebase (Optional)
+google-services.json
+firebase-debug.log
