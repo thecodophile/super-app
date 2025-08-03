@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
@@ -19,7 +20,8 @@ fun TextComponent(
     textValue: String? = null,
     textColorValue: Color = blackColor,
     fontSizeValue: TextUnit = 16.sp,
-    paddingValue: Dp = 0.dp
+    fontWeightValue: FontWeight = FontWeight.Normal,
+    paddingValue: Dp = 0.dp,
 ) {
     textValue?.let {
         Text(
@@ -28,7 +30,8 @@ fun TextComponent(
             text = it,
             style = TextStyle(
                 color = textColorValue,
-                fontSize = fontSizeValue
+                fontSize = fontSizeValue,
+                fontWeight = fontWeightValue
             ),
             textAlign = TextAlign.Start
         )

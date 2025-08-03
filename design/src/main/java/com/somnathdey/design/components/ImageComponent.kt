@@ -23,7 +23,7 @@ fun ImageComponent(
     }
     url?.also {
         AsyncImage(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier,
             model = it,
             contentDescription = "Image",
             contentScale = ContentScale.Fit

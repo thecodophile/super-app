@@ -7,7 +7,9 @@ import com.somnathdey.wealth.data.remote.dto.toCoin
 import com.somnathdey.wealth.data.remote.dto.toCoinDetails
 import com.somnathdey.datasource.local.entity.Coin
 import com.somnathdey.utilities.logging.AppLogger
+import com.somnathdey.wealth.data.remote.dto.toCoinTickerInformation
 import com.somnathdey.wealth.domain.model.CoinDetails
+import com.somnathdey.wealth.domain.model.CoinTickerInformation
 import com.somnathdey.wealth.domain.repository.CoinRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -70,6 +72,26 @@ class CoinRepositoryImpl @Inject constructor(
 
         }
     }
+
+    override suspend fun getCoinTickerInformation(coinId: String): Flow<Resource<CoinTickerInformation>> =
+        flow {
+            try {
+                emit(Resource.Loading())
+
+                val coinTickerInformation = api.getCoinTickerInformation(coinId = coinId)
+
+                emit(Resource.Success(coinTickerInformation.toCoinTickerInformation()))
+
+            } catch (e: HttpException) {
+
+                emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
+
+            } catch (e: IOException) {
+
+                emit(Resource.Error("Couldn't reach the servers, check your internet connection"))
+
+            }
+        }
 
     private suspend fun insertCoinListInDatabase(coinList: List<Coin>) {
         withContext(Dispatchers.IO) {

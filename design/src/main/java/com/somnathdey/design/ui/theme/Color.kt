@@ -8,3 +8,6 @@ val lightColor = Color(0xFFD396FF)
 
 val blackColor = Color(0xFF000000)
 val whiteColor = Color(0xFFFFFFFF)
+val greenColor = Color(0xFF007500)
+
+val lightGreenColor = Color(0xFFcdffcd)

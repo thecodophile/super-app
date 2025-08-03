@@ -1,5 +1,6 @@
 package com.somnathdey.wealth.domain.model
 
+import com.google.gson.annotations.SerializedName
 import com.somnathdey.wealth.data.remote.dto.Links
 import com.somnathdey.wealth.data.remote.dto.Tag
 import com.somnathdey.wealth.data.remote.dto.Team
@@ -15,4 +16,7 @@ data class CoinDetails(
     val team: List<Team>,
     val links: Links,
     val logo: String,
+    val author: String?,
+    val orgStructure: String,
+    val hashAlgorithm: String,
 )

@@ -3,6 +3,7 @@ package com.somnathdey.wealth.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import com.somnathdey.wealth.domain.model.CoinDetails
+import kotlin.String
 
 data class CoinDetailsDto(
     val id: String,
@@ -59,6 +60,9 @@ fun CoinDetailsDto.toCoinDetails(): CoinDetails {
         tags = tags,
         team = team,
         links = links,
-        logo = logo
-    );
+        logo = logo,
+        author = "${ team.getOrNull(index = 0)?.position } - ${ team.getOrNull(index = 0)?.name }",
+        orgStructure = orgStructure,
+        hashAlgorithm = hashAlgorithm
+    )
 }
