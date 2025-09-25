@@ -6,21 +6,7 @@ on:
   push:
     branches:
       - main
-permissions: write-all
 jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: AI Code Reviewer
-        uses: thecodophile/ai-code-reviewer@main
-        with: 
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
-          OPENAI_API_MODEL: "gpt-4"
-          exclude: "**/*.json, **/*.md"
   build:
     runs-on: ubuntu-latest
     steps:
